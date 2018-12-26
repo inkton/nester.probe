@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Nester.Probe.LogItemPage">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .logitem-form {
+                    flex-grow: 1;
+                    flex-direction: column;            
+                    background-color: #2c3e50;
+                    padding:10;
+                } 
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout StyleClass="body">
+            <FlexLayout StyleClass="container">
+
+                <FlexLayout StyleClass="logitem-form" >
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Time" />
+                        <Label StyleClass="label-ro" Text="{Binding Logs.Selected.Time}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Source" />
+                        <Label StyleClass="label-ro" Text="{Binding Logs.Selected.Source}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Level" />
+                        <Label StyleClass="label-ro" Text="{Binding Logs.Selected.Level}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="EventId" />
+                        <Label StyleClass="label-ro" Text="{Binding Logs.Selected.EventId}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Source" />
+                        <Label StyleClass="label-ro" Text="{Binding Logs.Selected.Source}" />
+                    </StackLayout>
+                    
+                    <Label Text="{Binding Logs.Selected.Name}" TextDecorations="Underline" />
+                    <Label MaxLines="200" Text="{Binding Logs.Selected.Message}" />
+
+                </FlexLayout>
+
+            </FlexLayout>
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

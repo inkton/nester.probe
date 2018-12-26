@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Nester.Probe"
+             xmlns:flexc="clr-namespace:Flex.Controls;assembly=Flex"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
+             x:Class="Nester.Probe.MainPage">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .button-form {
+                    padding:10;
+                    flex-direction: row;            
+                }
+                .main-form {
+                    flex-direction: column;            
+                }                      
+            ]]>
+        </StyleSheet>
+        <ResourceDictionary>
+            <DataTemplate x:Name="ItemTemplate" x:Key="ItemTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid RowSpacing="0" ColumnSpacing="0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="15*" />
+                                <ColumnDefinition Width="20*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Time}"  />
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Level}"  />
+                            <Label Grid.Column="2" Grid.Row="0" Text="{Binding EventId}" />
+                            <Label Grid.Column="3" Grid.Row="0" Text="{Binding Source}"  />
+                            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding Name}" />
+
+                            <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" OutlineColor="#95a5a6" HasShadow="True" HeightRequest="1"/>
+                        </Grid>
+
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout StyleClass="body" 
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+
+            <FlexLayout StyleClass="container" AlignContent="SpaceBetween">
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start"                             
+                       FlexLayout.Basis="10%">
+
+                    <flexc:FlexButton x:Name="StatusButton" 
+                        Margin="5"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Icon="Status.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2" />
+
+                    <flexc:FlexButton x:Name="InspectButton" 
+                        Margin="5"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Icon="Inspect.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2" />
+
+                    <flexc:FlexButton x:Name="AboutButton" 
+                        Margin="5"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Icon="About.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2" />                    
+                    
+                </StackLayout>
+
+                <FlexLayout StyleClass="main-form" FlexLayout.Basis="90%" >
+
+                    <StackLayout Orientation="Horizontal" FlexLayout.Basis="10%" >
+                        <Label Text="Log Age" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"  />
+                        <Picker x:Name="LogAge" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Title="Select logs for the last">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>8 Hours</x:String>
+                                    <x:String>16 Hours</x:String>
+                                    <x:String>24 Hours</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+
+                    <microcharts:ChartView x:Name="ChartView" FlexLayout.Basis="40%" />
+                    
+                    <ListView x:Name="NestLogs"
+                        FlexLayout.Basis="50%"
+                        SelectionMode="Single"
+                        ItemTemplate="{StaticResource ItemTemplate}"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                        ItemsSource="{Binding Logs.List}"
+                        SelectedItem="{Binding Logs.Selected, Mode=TwoWay}"                          
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand" />
+
+                </FlexLayout>
+
+            </FlexLayout>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                AbsoluteLayout.LayoutBounds=".5,.30,.5,.1" Color="#e74c3c"
+                   AbsoluteLayout.LayoutFlags="All"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

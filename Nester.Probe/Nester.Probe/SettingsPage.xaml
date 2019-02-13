@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:flexc="clr-namespace:Flex.Controls;assembly=Flex"
+             xmlns:local="clr-namespace:Nester.Probe"
+             x:Class="Nester.Probe.SettingsPage">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .settings-form {
+                    flex-grow: 1;
+                    flex-direction: column;            
+                    background-color: #2c3e50;
+                    padding:10;
+                }                
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout StyleClass="body">
+
+            <FlexLayout StyleClass="container">
+
+                <FlexLayout StyleClass="settings-form" FlexLayout.Basis="50%">
+                    <Label Text="Login" />
+                    <Entry x:Name="AppTagEntry" Text="{Binding AppTag}"
+                       IsSpellCheckEnabled="false" 
+                       MaxLength="32" 
+                       Placeholder="AppTag">
+                        <Entry.TextColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#f1f1f1"/>
+                            </OnPlatform>
+                        </Entry.TextColor>
+                        <Entry.PlaceholderColor x:TypeArguments="Color">
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#999"/>
+                            </OnPlatform>
+                        </Entry.PlaceholderColor>
+                    </Entry>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="true" Text="{Binding Password}">
+                        <Entry.TextColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#f1f1f1"/>
+                            </OnPlatform>
+                        </Entry.TextColor>
+                        <Entry.PlaceholderColor x:TypeArguments="Color">
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#999"/>
+                            </OnPlatform>
+                        </Entry.PlaceholderColor>
+                    </Entry>
+
+                </FlexLayout>
+                <FlexLayout StyleClass="settings-actions" FlexLayout.Basis="20%" AlignContent="SpaceBetween">
+
+                    <flexc:FlexButton x:Name="SaveButton"
+                        Margin="5"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Icon="Save.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2"
+                        FlexLayout.AlignSelf="Start" />
+
+                    <flexc:FlexButton x:Name="DefaultsButton"
+                        Margin="5"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Icon="Defaults.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2"
+                        FlexLayout.AlignSelf="Start" />
+
+                </FlexLayout>
+
+            </FlexLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

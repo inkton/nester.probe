@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Nester.Probe"
+             x:Class="Nester.Probe.StatusPage">
+    <ContentPage.Content>
+        <local:AuthWebView
+            x:Name="webView"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Source="{Binding MetricsUrl}"
+            Username="{Binding AppTag}"
+            Password="{Binding Password}"/>
+    </ContentPage.Content>
+</ContentPage>

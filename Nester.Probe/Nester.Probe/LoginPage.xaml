@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Nester.Probe"
+             x:Class="Nester.Probe.LoginPage">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .logo { 
+                    width:200;
+                }            
+                .login-form {
+                    flex-direction: column;            
+                    background-color: #2c3e50;
+                    height: 200;
+                }                
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout StyleClass="body" 
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">        
+            
+            <FlexLayout StyleClass="container">
+
+                <Image StyleClass="logo" 
+                       FlexLayout.Basis="60%"
+                       FlexLayout.AlignSelf="Center"
+                       Source="{local:ImageResource Nester.Probe.Assets.NesterProbe.png}" />
+
+                <FlexLayout StyleClass="login-form" FlexLayout.Basis="40%">
+                    <Entry x:Name="AppTagEntry" Text="{Binding AppTag}"
+                       IsSpellCheckEnabled="false" 
+                       MaxLength="32" 
+                       Placeholder="AppTag">
+                        <Entry.TextColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#f1f1f1"/>
+                            </OnPlatform>
+                        </Entry.TextColor>
+                        <Entry.PlaceholderColor x:TypeArguments="Color">
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#999"/>
+                            </OnPlatform>
+                        </Entry.PlaceholderColor>
+                    </Entry>
+                    <Entry x:Name="PasswordEntry" Text="{Binding Password}" Placeholder="Password" IsPassword="true">
+                        <Entry.TextColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#f1f1f1"/>
+                            </OnPlatform>
+                        </Entry.TextColor>
+                        <Entry.PlaceholderColor x:TypeArguments="Color">
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android" Value="#999"/>
+                            </OnPlatform>
+                        </Entry.PlaceholderColor>
+                    </Entry>
+
+                    <Button x:Name="LoginButton" Text="Go" FlexLayout.AlignSelf="Center"
+                        WidthRequest="60" HeightRequest="60" TextColor="#2c3e50" 
+                        BorderColor="#ecf0f1" BorderRadius="30"  />
+
+                </FlexLayout>
+ 
+            </FlexLayout>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                AbsoluteLayout.LayoutBounds=".5,.30,.5,.1" Color="#e74c3c"
+                   AbsoluteLayout.LayoutFlags="All"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:flexc="clr-namespace:Flex.Controls;assembly=Flex"
+             xmlns:local="clr-namespace:Nester.Probe"
+             x:Class="Nester.Probe.AboutPage">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+                .logo { 
+                    width:200;
+                }            
+                .about-form {
+                    flex-direction: column;            
+                    background-color: #2c3e50;
+                    height: 200;
+                }
+                .notice-info
+                {
+                    color:#ecf0f1;
+                    font-weight:bold;
+                    font-size:large;
+                    margin-top:80;            
+                    margin-bottom:60;
+                }
+                .meta-info
+                {
+                    color:#bdc3c7;
+                    font-size:small;
+                }   
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout StyleClass="body" 
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+            
+            <FlexLayout StyleClass="container">
+
+                <Image StyleClass="logo" 
+                       FlexLayout.Basis="60%"
+                       FlexLayout.AlignSelf="Center"
+                       Source="{local:ImageResource Nester.Probe.Assets.NesterProbe.png}" />
+
+
+                <FlexLayout StyleClass="about-form" FlexLayout.Basis="40%">
+
+                    <Label x:Name="MessageLabel" StyleClass="notice-info" FlexLayout.AlignSelf="Center" />
+
+                    <flexc:FlexButton x:Name="SettingsButton"
+                        Margin="20"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        CornerRadius="30"
+                        Icon="Settings.png"
+                        VerticalOptions="Start"
+                        ForegroundColor="#ffffff"
+                        HighlightForegroundColor="#49516F"
+                        BackgroundColor="#6279B8"
+                        HighlightBackgroundColor="#8EA4D2"
+                        FlexLayout.AlignSelf="Center" />
+
+                    <Label x:Name="InfoLabel" StyleClass="meta-info" FlexLayout.AlignSelf="Center" />
+                    <Label x:Name="VersionLabel" StyleClass="meta-info" FlexLayout.AlignSelf="Center" />
+
+                </FlexLayout>
+                
+            </FlexLayout>
+
+            <ActivityIndicator x:Name="IsBusyIndicator" Color="#e74c3c"
+                  IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" 
+                  AbsoluteLayout.LayoutBounds=".5,.70,.5,.1" 
+                  AbsoluteLayout.LayoutFlags="All"/>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
